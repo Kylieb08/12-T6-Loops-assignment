@@ -20,10 +20,12 @@
             switch (choice)
             {
                 case 1:
+                    Console.Clear();
                     Prompter();
                     break;
 
                 case 2:
+                    Console.Clear();
                     Banking();
                     break;
             }
@@ -54,10 +56,47 @@
         public static void Banking()
         {
             double balance = 150;
+            string transaction;
+            bool done = false;
 
-            Console.WriteLine("Welcome to Bank of Blorb ATM");
-            Console.WriteLine(" What would you like to do?");
-            Console.WriteLine("----------------------------");
+            while (!done)
+            {
+                Console.WriteLine("Welcome to Bank of Blorb ATM");
+                Console.WriteLine("What would you like to do?");
+                Console.WriteLine("Please enter the name, not the number");
+                Console.WriteLine("-------------------------------------");
+                Console.WriteLine("1. Deposit");
+                Console.WriteLine("2. Withdrawl");
+                Console.WriteLine("3. Bill Payment");
+                Console.WriteLine("4. Account Balance Update");
+                transaction = Console.ReadLine();
+                transaction = transaction.ToLower();
+
+                switch (transaction)
+                {
+                    case "deposit":
+                        Console.WriteLine();
+                        Console.WriteLine("how much would you like to deposit?");
+                        break;
+
+                    case "withdrawl":
+                        Console.WriteLine();
+                        break;
+
+                    case "bill payment":
+                        Console.WriteLine();
+                        break;
+
+                    case "account balance update":
+                        Console.WriteLine();
+                        break;
+
+                    default:
+                        Console.WriteLine("Invalid input, please try again");
+                        break;
+                }
+            }
+            
         }
     }
 }
