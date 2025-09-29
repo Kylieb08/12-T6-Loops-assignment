@@ -63,6 +63,8 @@
 
             while (!doneBoB)
             {
+                balance -= 0.75;
+
                 if (balance < 0.75)
                 {
                     Console.WriteLine("You cannot afford to use this ATM");
@@ -82,7 +84,6 @@
                 switch (transaction)
                 {
                     case "deposit":
-                        balance -= 0.75;
                         Console.WriteLine();
                         Console.WriteLine("how much would you like to deposit?");
                         while (!double.TryParse(Console.ReadLine(), out deposit) || deposit <= 0)
