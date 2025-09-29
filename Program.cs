@@ -55,13 +55,20 @@
 
         public static void Banking()
         {
-            double balance = 150;
+            double balance = 150, deposit;
             string transaction;
-            bool done = false;
+            bool doneBoB = false;
 
-            while (!done)
+            Console.WriteLine("Welcome to Bank of Blorb ATM");
+
+            while (!doneBoB)
             {
-                Console.WriteLine("Welcome to Bank of Blorb ATM");
+                if (balance < 0.75)
+                {
+                    Console.WriteLine("You cannot afford to use this ATM");
+                    doneBoB = true;
+                }
+                
                 Console.WriteLine("What would you like to do?");
                 Console.WriteLine("Please enter the name, not the number");
                 Console.WriteLine("-------------------------------------");
@@ -69,14 +76,25 @@
                 Console.WriteLine("2. Withdrawl");
                 Console.WriteLine("3. Bill Payment");
                 Console.WriteLine("4. Account Balance Update");
-                transaction = Console.ReadLine();
-                transaction = transaction.ToLower();
+                Console.WriteLine("5. Exit");
+                transaction = Console.ReadLine().ToLower();
 
                 switch (transaction)
                 {
                     case "deposit":
+                        balance -= 0.75;
                         Console.WriteLine();
                         Console.WriteLine("how much would you like to deposit?");
+                        while (!double.TryParse(Console.ReadLine(), out deposit) || deposit <= 0)
+                        {
+                            Console.WriteLine("Invalid input, please try again");
+                        }
+                        balance += deposit;
+                        Console.WriteLine($"You deposited {deposit} Blorbian dollars into your account");
+                        Console.WriteLine();
+                        Console.WriteLine("Press ENTER to continue");
+                        Console.ReadLine();
+                        Console.Clear();
                         break;
 
                     case "withdrawl":
@@ -91,8 +109,17 @@
                         Console.WriteLine();
                         break;
 
+
+                    case "exit":
+                        Console.WriteLine("Thank you for using BoB ATM");
+                        doneBoB = true;
+                        break;
+
                     default:
                         Console.WriteLine("Invalid input, please try again");
+                        Console.WriteLine("Press ENTER to continue");
+                        Console.ReadLine();
+                        Console.Clear();
                         break;
                 }
             }
