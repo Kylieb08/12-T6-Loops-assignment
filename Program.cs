@@ -28,5 +28,10 @@
             Console.WriteLine();
             Console.WriteLine($"You entered {num}, which is between {min} and {max}");
         }
+
+        public static void Banking()
+        {
+
+        }
     }
 }
