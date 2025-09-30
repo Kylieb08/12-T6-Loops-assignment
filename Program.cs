@@ -5,34 +5,44 @@
         static void Main(string[] args)
         {
             int choice;
+            bool done = false;
 
-            Console.WriteLine("Which program would you like to run? (Enter the number)");
-            Console.WriteLine("-------------------------------------------------------");
-            Console.WriteLine("1. Prompter");
-            Console.WriteLine("2. Banking");
-            Console.WriteLine("3. Doubles Roller");
-            
-            while (!Int32.TryParse(Console.ReadLine(), out choice) || choice < 1 || choice > 3)
+            while (!done)
             {
-                Console.WriteLine("Invalid input, please try again");
-            }
+                Console.WriteLine("Which program would you like to run? (Enter the number)");
+                Console.WriteLine("-------------------------------------------------------");
+                Console.WriteLine("1. Prompter");
+                Console.WriteLine("2. Banking");
+                Console.WriteLine("3. Doubles Roller");
+                Console.WriteLine("4. Quit");
 
-            switch (choice)
-            {
-                case 1:
-                    Console.Clear();
-                    Prompter();
-                    break;
+                while (!Int32.TryParse(Console.ReadLine(), out choice) || choice < 1 || choice > 3)
+                {
+                    Console.WriteLine("Invalid input, please try again");
+                }
 
-                case 2:
-                    Console.Clear();
-                    Banking();
-                    break;
+                switch (choice)
+                {
+                    case 1:
+                        Console.Clear();
+                        Prompter();
+                        break;
 
-                case 3:
-                    Console.Clear();
-                    Doubles();
-                    break;
+                    case 2:
+                        Console.Clear();
+                        Banking();
+                        break;
+
+                    case 3:
+                        Console.Clear();
+                        Doubles();
+                        break;
+
+                    case 4:
+                        Console.WriteLine("Thank you for playing");
+                        done = true;
+                        break;
+                }
             }
         }
 
