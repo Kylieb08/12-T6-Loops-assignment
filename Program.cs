@@ -28,6 +28,11 @@
                     Console.Clear();
                     Banking();
                     break;
+
+                case 3:
+                    Console.Clear();
+                    Doubles();
+                    break;
             }
         }
 
@@ -185,6 +190,11 @@
                     }
                 }
             }
+        }
+
+        public static void Doubles()
+        {
+            Console.WriteLine("This is yet to be coded");
         }
     }
 }
