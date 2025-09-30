@@ -55,7 +55,7 @@
 
         public static void Banking()
         {
-            double balance = 150, deposit, withdrawl;
+            double balance = 150, deposit, withdrawl, payment;
             string transaction;
             bool doneBoB = false;
 
@@ -100,7 +100,7 @@
 
                     case "withdrawl":
                         Console.WriteLine();
-                        Console.WriteLine("how much would you like to withdraw?");
+                        Console.WriteLine("How much would you like to withdraw?");
                         while (!double.TryParse(Console.ReadLine(), out withdrawl) || withdrawl <= 0 || withdrawl > balance)
                         {
                             Console.WriteLine("Invalid input, please try again");
@@ -115,7 +115,13 @@
                         break;
 
                     case "bill payment":
-                        Console.WriteLine();
+                        Console.WriteLine("How much would you like to pay?");
+                        while (!double.TryParse(Console.ReadLine(), out payment) || payment <= 0 || payment > balance)
+                        {
+                            Console.WriteLine("Invalid input, please try again");
+                        }
+                        balance -= payment;
+                        Console.WriteLine($"You payed {payment} Blorbian dollars towards your bills");
                         break;
 
                     case "account balance update":
