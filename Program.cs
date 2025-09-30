@@ -70,117 +70,119 @@
                     Console.WriteLine("You cannot afford to use this ATM");
                     doneBoB = true;
                 }
-                
-                Console.WriteLine("What would you like to do?");
-                Console.WriteLine("Please enter the name, not the number");
-                Console.WriteLine("-------------------------------------");
-                Console.WriteLine("1. Deposit");
-                Console.WriteLine("2. Withdrawl");
-                Console.WriteLine("3. Bill Payment");
-                Console.WriteLine("4. Account Balance Update");
-                Console.WriteLine("5. Exit");
-                transaction = Console.ReadLine().ToLower();
 
-                switch (transaction)
+                else
                 {
-                    case "deposit":
-                        Console.WriteLine();
-                        Console.WriteLine("75 Blorbian cents have been subtracted from your account for this transaction");
-                        Console.WriteLine("how much would you like to deposit?");
-                        while (!double.TryParse(Console.ReadLine(), out deposit) || deposit <= 0)
-                        {
-                            Console.WriteLine("Invalid input, please try again");
-                        }
-                        balance += deposit;
-                        Console.WriteLine($"You deposited {deposit} Blorbian dollars into your account");
-                        Console.WriteLine();
-                        Console.WriteLine("Press ENTER to continue");
-                        Console.ReadLine();
-                        Console.Clear();
-                        break;
+                    Console.WriteLine("What would you like to do?");
+                    Console.WriteLine("Please enter the name, not the number");
+                    Console.WriteLine("-------------------------------------");
+                    Console.WriteLine("1. Deposit");
+                    Console.WriteLine("2. Withdrawl");
+                    Console.WriteLine("3. Bill Payment");
+                    Console.WriteLine("4. Account Balance Update");
+                    Console.WriteLine("5. Exit");
+                    transaction = Console.ReadLine().ToLower();
 
-                    case "withdrawl":
-                        Console.WriteLine();
-                        Console.WriteLine("75 Blorbian cents have been subtracted from your account for this transaction");
-                        Console.WriteLine("How much would you like to withdraw?");
-                        while (!double.TryParse(Console.ReadLine(), out withdrawl) || withdrawl <= 0)
-                        {
-                            Console.WriteLine("Invalid input, please try again");
-                        }
-
-                        if (withdrawl > balance)
-                        {
-                            Console.WriteLine("You attempted to withdraw more than you have in your account");
-                            Console.WriteLine("Your transaction ahs been canceled");
-                            Console.WriteLine("Press ENTER to continue");
-                            Console.ReadLine();
-                            Console.Clear();
-                        }
-
-                        else
-                        {
-                            balance -= withdrawl;
-                            Console.WriteLine($"You withdrew {withdrawl} Blorbian dollars from your account");
+                    switch (transaction)
+                    {
+                        case "deposit":
+                            Console.WriteLine();
+                            Console.WriteLine("75 Blorbian cents have been subtracted from your account for this transaction");
+                            Console.WriteLine("how much would you like to deposit?");
+                            while (!double.TryParse(Console.ReadLine(), out deposit) || deposit <= 0)
+                            {
+                                Console.WriteLine("Invalid input, please try again");
+                            }
+                            balance += deposit;
+                            Console.WriteLine($"You deposited {deposit} Blorbian dollars into your account");
                             Console.WriteLine();
                             Console.WriteLine("Press ENTER to continue");
                             Console.ReadLine();
                             Console.Clear();
-                            
-                        }
-                        break;
+                            break;
 
+                        case "withdrawl":
+                            Console.WriteLine();
+                            Console.WriteLine("75 Blorbian cents have been subtracted from your account for this transaction");
+                            Console.WriteLine("How much would you like to withdraw?");
+                            while (!double.TryParse(Console.ReadLine(), out withdrawl) || withdrawl <= 0)
+                            {
+                                Console.WriteLine("Invalid input, please try again");
+                            }
 
-                    case "bill payment":
-                        Console.WriteLine();
-                        Console.WriteLine("75 Blorbian cents have been subtracted from your account for this transaction");
-                        Console.WriteLine("How much would you like to pay?");
-                        while (!double.TryParse(Console.ReadLine(), out payment) || payment <= 0)
-                        {
-                            Console.WriteLine("Invalid input, please try again");
-                        }
+                            if (withdrawl > balance)
+                            {
+                                Console.WriteLine("You attempted to withdraw more than you have in your account");
+                                Console.WriteLine("Your transaction ahs been canceled");
+                                Console.WriteLine("Press ENTER to continue");
+                                Console.ReadLine();
+                                Console.Clear();
+                            }
 
-                        if (payment > balance)
-                        {
-                            Console.WriteLine("You attempted to pay more than you have in your account");
-                            Console.WriteLine("Your transaction ahs been canceled");
+                            else
+                            {
+                                balance -= withdrawl;
+                                Console.WriteLine($"You withdrew {withdrawl} Blorbian dollars from your account");
+                                Console.WriteLine();
+                                Console.WriteLine("Press ENTER to continue");
+                                Console.ReadLine();
+                                Console.Clear();
+
+                            }
+                            break;
+
+                        case "bill payment":
+                            Console.WriteLine();
+                            Console.WriteLine("75 Blorbian cents have been subtracted from your account for this transaction");
+                            Console.WriteLine("How much would you like to pay?");
+                            while (!double.TryParse(Console.ReadLine(), out payment) || payment <= 0)
+                            {
+                                Console.WriteLine("Invalid input, please try again");
+                            }
+
+                            if (payment > balance)
+                            {
+                                Console.WriteLine("You attempted to pay more than you have in your account");
+                                Console.WriteLine("Your transaction ahs been canceled");
+                                Console.WriteLine("Press ENTER to continue");
+                                Console.ReadLine();
+                                Console.Clear();
+                            }
+
+                            else
+                            {
+                                balance -= payment;
+                                Console.WriteLine($"You payed {payment} Blorbian dollars towards your bills");
+                            }
+                            break;
+
+                        case "account balance update":
+                            Console.WriteLine();
+                            Console.WriteLine("75 Blorbian cents have been subtracted from your account for this transaction");
+                            Console.WriteLine($"You have {balance} Blorbian dollars in your account");
+                            Console.WriteLine();
                             Console.WriteLine("Press ENTER to continue");
                             Console.ReadLine();
                             Console.Clear();
-                        }
+                            break;
 
-                        else
-                        {
-                            balance -= payment;
-                            Console.WriteLine($"You payed {payment} Blorbian dollars towards your bills");
-                        }
-                        break;
+                        case "exit":
+                            Console.WriteLine();
+                            Console.WriteLine("75 Blorbian cents have been subtracted from your account for this transaction");
+                            Console.WriteLine("Thank you for using BoB ATM");
+                            doneBoB = true;
+                            break;
 
-                    case "account balance update":
-                        Console.WriteLine();
-                        Console.WriteLine("75 Blorbian cents have been subtracted from your account for this transaction");
-                        Console.WriteLine($"You have {balance} Blorbian dollars in your account");
-                        Console.WriteLine();
-                        Console.WriteLine("Press ENTER to continue");
-                        Console.ReadLine();
-                        Console.Clear();
-                        break;
-
-                    case "exit":
-                        Console.WriteLine();
-                        Console.WriteLine("75 Blorbian cents have been subtracted from your account for this transaction");
-                        Console.WriteLine("Thank you for using BoB ATM");
-                        doneBoB = true;
-                        break;
-
-                    default:
-                        Console.WriteLine("Invalid input");
-                        Console.WriteLine("75 Blorbian cents have been subtracted from your account for this transaction");
-                        Console.WriteLine($"You have {balance} Blorbian dollars in your account");
-                        Console.WriteLine();
-                        Console.WriteLine("Press ENTER to continue");
-                        Console.ReadLine();
-                        Console.Clear();
-                        break;
+                        default:
+                            Console.WriteLine("Invalid input");
+                            Console.WriteLine("75 Blorbian cents have been subtracted from your account for this transaction");
+                            Console.WriteLine($"You have {balance} Blorbian dollars in your account");
+                            Console.WriteLine();
+                            Console.WriteLine("Press ENTER to continue");
+                            Console.ReadLine();
+                            Console.Clear();
+                            break;
+                    }
                 }
             }
         }
