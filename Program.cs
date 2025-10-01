@@ -1,5 +1,7 @@
 ﻿namespace _12_T6_Loops_assignment
 {
+    using _12_T5._5_Classes;
+
     internal class Program
     {
         static void Main(string[] args)
@@ -204,7 +206,11 @@
 
         public static void Doubles()
         {
-            Console.WriteLine("This is yet to be coded");
+            Die die1;
+            Die die2;
+
+            die1 = new Die();
+            die2 = new Die();
         }
     }
 }
