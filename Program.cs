@@ -18,7 +18,7 @@
                 Console.WriteLine("3. Doubles Roller");
                 Console.WriteLine("4. Quit");
 
-                while (!Int32.TryParse(Console.ReadLine(), out choice) || choice < 1 || choice > 3)
+                while (!Int32.TryParse(Console.ReadLine(), out choice) || choice < 1 || choice > 4)
                 {
                     Console.WriteLine("Invalid input, please try again");
                 }
@@ -211,10 +211,13 @@
             bool doubles = false;
             int rollCount = 0;
 
+            die1 = new Die();
+            die2 = new Die();
+
             while (!doubles)
             {
-                die1 = new Die();
-                die2 = new Die();
+                die1.RollDie();
+                die2.RollDie();
                 Console.WriteLine(die1.Roll);
                 Console.WriteLine(die2.Roll);
 
