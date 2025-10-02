@@ -18,7 +18,7 @@ namespace _12_T5._5_Classes
         {
             _generator = new Random();
             _roll = _generator.Next(1, 7);
-            _colour = ConsoleColor.Green;
+            _colour = ConsoleColor.Magenta;
         }
 
         public Die(ConsoleColor colour)

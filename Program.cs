@@ -42,6 +42,7 @@
 
                     case 4:
                         Console.WriteLine("Thank you for playing");
+                        Console.WriteLine("Press ENTER to exit");
                         done = true;
                         break;
                 }
@@ -188,6 +189,10 @@
                             Console.WriteLine("75 Blorbian cents have been subtracted from your account for this transaction");
                             Console.WriteLine("Thank you for using BoB ATM");
                             doneBoB = true;
+                            Console.WriteLine();
+                            Console.WriteLine("Press ENTER to continue");
+                            Console.ReadLine();
+                            Console.Clear();
                             break;
 
                         default:
@@ -218,8 +223,8 @@
             {
                 die1.RollDie();
                 die2.RollDie();
-                Console.WriteLine(die1.Roll);
-                Console.WriteLine(die2.Roll);
+                die1.DrawRoll();
+                die2.DrawRoll();
 
                 Console.WriteLine();
                 if (die1.Roll == die2.Roll)
@@ -227,6 +232,11 @@
                 rollCount++;                
             }
             Console.WriteLine(rollCount);
+
+            Console.WriteLine();
+            Console.WriteLine("Press ENTER to continue");
+            Console.ReadLine();
+            Console.Clear();
         }
     }
 }
