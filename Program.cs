@@ -221,15 +221,7 @@
                 Console.WriteLine();
                 if (die1.Roll == die2.Roll)
                     doubles = true;
-                rollCount++;
-
-                //for (int i = 0; i < rollCount; i++)
-                //{
-
-                //}
-
-
-                
+                rollCount++;                
             }
             Console.WriteLine(rollCount);
         }
