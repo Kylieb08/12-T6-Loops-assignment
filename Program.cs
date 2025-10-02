@@ -208,9 +208,30 @@
         {
             Die die1;
             Die die2;
+            bool doubles = false;
+            int rollCount = 0;
 
-            die1 = new Die();
-            die2 = new Die();
+            while (!doubles)
+            {
+                die1 = new Die();
+                die2 = new Die();
+                Console.WriteLine(die1.Roll);
+                Console.WriteLine(die2.Roll);
+
+                Console.WriteLine();
+                if (die1.Roll == die2.Roll)
+                    doubles = true;
+                rollCount++;
+
+                //for (int i = 0; i < rollCount; i++)
+                //{
+
+                //}
+
+
+                
+            }
+            Console.WriteLine(rollCount);
         }
     }
 }
